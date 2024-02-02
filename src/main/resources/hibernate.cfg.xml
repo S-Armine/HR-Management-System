@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory >
+
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/hrsystem?useSSL=false</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">postgrespassword</property>
+        <property name="hbm2ddl.auto">update</property>
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">5</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">
+            org.hibernate.cache.ehcache.EhCacheRegionFactory
+        </property>
+
+        <property name="format_sql">true</property>
+        <property name="show_sql">true</property>
+
+        <mapping class="org.management.Employee"/>
+        <mapping class="org.management.Department"/>
+        <mapping class="org.management.Manager"/>
+        <mapping class="org.management.Project"/>
+    </session-factory>
+
+</hibernate-configuration>
